@@ -9,6 +9,11 @@ namespace SOLID.SingleResponsability.BadImplementation
         public int Id { get; private set; }
         public string Login { get; private set; }
         public string Password { get; private set; }
+        public bool CanReadUsersList { get; private set; }
+        public bool CanWriteUsersList { get; private set; }
+        public bool CanReadProjectsList { get; private set; }
+        public bool CanWriteProjectsList { get; private set; }
+        public bool IsAdmin { get; private set; }
 
         public User(int id)
         {
@@ -39,13 +44,21 @@ namespace SOLID.SingleResponsability.BadImplementation
                 Connection = cnx,
                 CommandText = $"SELECT * FROM User where Id = {Id}"
             };
-            SqlDataReader dr = cmd.ExecuteReader();
 
-            if (dr.Read())
+
+            using (var dr = cmd.ExecuteReader())
             {
-                Id = int.Parse(dr["Id"].ToString());
-                Login = dr["Login"].ToString();
-                Password = dr["Password"].ToString();
+                if (dr.Read())
+                {
+                    Id = int.Parse(dr["Id"].ToString());
+                    Login = dr["Login"].ToString();
+                    Password = dr["Password"].ToString();
+                    CanReadUsersList = bool.Parse(dr["CanReadProjectsList"].ToString());
+                    CanWriteUsersList = bool.Parse(dr["Password"].ToString());
+                    CanReadProjectsList = bool.Parse(dr["Password"].ToString());
+                    CanWriteProjectsList = bool.Parse(dr["Password"].ToString());
+                    IsAdmin = bool.Parse(dr["Password"].ToString());
+                }
             }
         }
 

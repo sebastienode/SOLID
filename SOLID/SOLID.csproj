@@ -42,7 +42,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleResponsability\BadImplementation\User.cs" />
+    <Compile Include="SingleResponsability\GoodImplementation\IUserDataAccess.cs" />
+    <Compile Include="SingleResponsability\GoodImplementation\Right.cs" />
+    <Compile Include="SingleResponsability\GoodImplementation\Role.cs" />
+    <Compile Include="SingleResponsability\GoodImplementation\User.cs" />
+    <Compile Include="SingleResponsability\GoodImplementation\UserControl.cs" />
+    <Compile Include="SingleResponsability\GoodImplementation\UserDataAccess.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

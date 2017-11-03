@@ -42,7 +42,7 @@ namespace SOLID.SingleResponsability.BadImplementation
             SqlCommand cmd = new SqlCommand()
             {
                 Connection = cnx,
-                CommandText = $"SELECT * FROM User where Id = {Id}"
+                CommandText = $"SELECT * FROM User where Id = {id}"
             };
 
 
